@@ -2,16 +2,22 @@ import argparse
 from game import Game
 
 
-def main():
-    parser = argparse.ArgumentParser()
+def args_parsing():
+    parser = argparse.ArgumentParser(description="Let`s some fun :)")
 
     parser.add_argument(
-        "-s", "--sparks-amount-range", action="store_true", help=""
+        "-s", "--sparks-amount-range", type=str, default='20-30'
     )
+
     arguments = parser.parse_args()
-    return arguments
+
+    sparks_range = arguments.sparks_amount_range.split('-')
+    sparks_amount_range = tuple(map(int, sparks_range))
+
+    return sparks_amount_range
+
 
 if __name__ == '__main__':
     application = Game()
     application.run()
-    main()
+    args_parsing()

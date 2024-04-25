@@ -6,10 +6,13 @@ from projectiles.rocket import Rocket
 from projectiles.spark import Spark
 
 
+DEFAULT_AMOUNTS_OF_SPARKS = (20, 30)
+
 class Game:
 
-    def __init__(self):
-        self.projectiles: list  = list()
+    def __init__(self, def_amount=DEFAULT_AMOUNTS_OF_SPARKS ):
+        self.projectiles: list = list()
+        self.def_amount = DEFAULT_AMOUNTS_OF_SPARKS
 
         turtle.setup(800, 600)
         turtle.onkey(self.exit, "Escape")
@@ -61,7 +64,7 @@ class Game:
     
     def explode_rocket(self, rocket):
         coordinates = (rocket.xcor(), rocket.ycor())
-        for _ in range(randint(20, 30)):
+        for _ in range(randint(self.def_amount[0], self.def_amount[1])):
             spark = Spark(*coordinates)
             self.projectiles.insert(0, spark)
 
