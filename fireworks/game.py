@@ -1,12 +1,13 @@
 from random import randint
 from time import sleep
+from main import args_parsing
 import turtle
 
 from projectiles.rocket import Rocket
 from projectiles.spark import Spark
 
-
-DEFAULT_AMOUNTS_OF_SPARKS = (20, 30)
+# from main: return tuple of the values (20, 30)
+DEFAULT_AMOUNTS_OF_SPARKS = args_parsing()
 
 class Game:
 

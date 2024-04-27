@@ -18,6 +18,7 @@ def args_parsing():
 
 
 if __name__ == '__main__':
-    application = Game()
+    sparks = args_parsing()
+    application = Game(sparks)
     application.run()
-    args_parsing()
+
