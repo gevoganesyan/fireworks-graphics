@@ -9,9 +9,9 @@ from projectiles.spark import Spark
 # from main: return tuple of the values (20, 30)
 DEFAULT_AMOUNTS_OF_SPARKS = args_parsing()
 
-class Game:
 
-    def __init__(self, def_amount=DEFAULT_AMOUNTS_OF_SPARKS ):
+class Game:
+    def __init__(self, def_amount=DEFAULT_AMOUNTS_OF_SPARKS):
         self.projectiles: list = list()
         self.def_amount = DEFAULT_AMOUNTS_OF_SPARKS
 
@@ -56,13 +56,13 @@ class Game:
     def rocket_launch(self):
         rocket = Rocket()
         self.projectiles.insert(0, rocket)
-    
+
     def kill_projectile(self, projectile):
         self.projectiles.remove(projectile)
         projectile.kill()
         if projectile.is_rocket:
             self.explode_rocket(projectile)
-    
+
     def explode_rocket(self, rocket):
         coordinates = (rocket.xcor(), rocket.ycor())
         for _ in range(randint(self.def_amount[0], self.def_amount[1])):

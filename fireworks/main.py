@@ -1,5 +1,5 @@
 import argparse
-from game import Game
+import game
 
 
 def args_parsing():
@@ -19,6 +19,5 @@ def args_parsing():
 
 if __name__ == '__main__':
     sparks = args_parsing()
-    application = Game(sparks)
+    application = game.Game(sparks)
     application.run()
-
